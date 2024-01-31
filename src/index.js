@@ -1,7 +1,5 @@
 import _ from "lodash";
 import './style.css';
-import goCave from "./gocave.js";
-import fightDragon from "./fightdragon.js";
 
 const game = () =>{
     let xp = 0;
@@ -22,6 +20,23 @@ const game = () =>{
     const monsterStats = document.querySelector('#monsterStats');
     const monsterName = document.querySelector('#monsterName');
     const monsterHealthText = document.querySelector('#monsterHealth');
+    const locations = [
+        {
+            name: "town square",
+            "button text": ["Go to store", "Go to cave", "Fight dragon"],
+            "button functions": [ goStore, goCave, fightDragon ],
+            text: "You are in the town square. You see a sign that says \"Store\"."
+
+        },
+        {
+            name: "store",
+            "button text": ["Buy 10 health (10 gold)", "Buy weapon (30 gold)" , "Go to town square"],
+            "button functions": [buyHealth, buyWeapon, goTown],
+            text: "You enter the store."
+
+
+        }
+    ];
 
     // initialize buttons
     button1.onclick = goStore();
